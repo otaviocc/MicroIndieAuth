@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "microclient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/otaviocc/MicroClient.git",
+      "state" : {
+        "revision" : "4de5776b9683cf53478d69878e7eb2a6adc29e1b",
+        "version" : "0.0.15"
+      }
+    }
+  ],
+  "version" : 2
+}
