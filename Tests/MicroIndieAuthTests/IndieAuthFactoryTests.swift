@@ -35,7 +35,7 @@ final class IndieAuthFactoryTests: XCTestCase {
         XCTAssertTrue(
             try XCTUnwrap(
                 request.queryItems.contains(
-                    URLQueryItem(name: "me", value: "otavio.cc")
+                    .init(name: "me", value: "otavio.cc")
                 )
             )
         )
@@ -43,7 +43,7 @@ final class IndieAuthFactoryTests: XCTestCase {
         XCTAssertTrue(
             try XCTUnwrap(
                 request.queryItems.contains(
-                    URLQueryItem(name: "client_id", value: "some_client_id")
+                    .init(name: "client_id", value: "some_client_id")
                 )
             )
         )
@@ -51,7 +51,7 @@ final class IndieAuthFactoryTests: XCTestCase {
         XCTAssertTrue(
             try XCTUnwrap(
                 request.queryItems.contains(
-                    URLQueryItem(name: "state", value: "1234567890")
+                    .init(name: "state", value: "1234567890")
                 )
             )
         )
@@ -59,7 +59,7 @@ final class IndieAuthFactoryTests: XCTestCase {
         XCTAssertTrue(
             try XCTUnwrap(
                 request.queryItems.contains(
-                    URLQueryItem(name: "scope", value: "create+delete")
+                    .init(name: "scope", value: "create+delete")
                 )
             )
         )
@@ -67,7 +67,7 @@ final class IndieAuthFactoryTests: XCTestCase {
         XCTAssertTrue(
             try XCTUnwrap(
                 request.queryItems.contains(
-                    URLQueryItem(name: "response_type", value: "code")
+                    .init(name: "response_type", value: "code")
                 )
             )
         )
@@ -98,46 +98,49 @@ final class IndieAuthFactoryTests: XCTestCase {
         )
 
         XCTAssertEqual(
-            request.queryItems.count,
+            request.formItems?.count,
             5
         )
 
         XCTAssertTrue(
             try XCTUnwrap(
-                request.queryItems.contains(
-                    URLQueryItem(name: "me", value: "otavio.cc")
+                request.formItems?.contains(
+                    .init(name: "me", value: "otavio.cc")
                 )
             )
         )
 
         XCTAssertTrue(
             try XCTUnwrap(
-                request.queryItems.contains(
-                    URLQueryItem(name: "grant_type", value: "authorization_code")
+                request.formItems?.contains(
+                    .init(name: "grant_type", value: "authorization_code")
                 )
             )
         )
 
         XCTAssertTrue(
             try XCTUnwrap(
-                request.queryItems.contains(
-                    URLQueryItem(name: "client_id", value: "some_client_id")
+                request.formItems?.contains(
+                    .init(name: "client_id", value: "some_client_id")
                 )
             )
         )
 
         XCTAssertTrue(
             try XCTUnwrap(
-                request.queryItems.contains(
-                    URLQueryItem(name: "code", value: "some_code")
+                request.formItems?.contains(
+                    .init(name: "code", value: "some_code")
                 )
             )
         )
 
         XCTAssertTrue(
             try XCTUnwrap(
-                request.queryItems.contains(
-                    URLQueryItem(name: "redirect_uri", value: "app://some_client_id/token")
+                request.formItems?.contains(
+                    .init(
+                        name: "redirect_uri",
+                        value: "app://some_client_id/token"
+                    )
                 )
             )
         )

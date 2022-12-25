@@ -46,7 +46,7 @@ public enum IndieAuthFactory {
         .init(
             path: tokenURI.path,
             method: .post,
-            queryItems: [
+            formItems: [
                 .init(name: "me", value: me),
                 .init(name: "grant_type", value: "authorization_code"),
                 .init(name: "client_id", value: clientID),
